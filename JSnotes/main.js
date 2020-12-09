@@ -169,13 +169,3 @@ console.log(todoCompleted);
 
 
 
-
-
-
-
-
-
-
-
-
-
