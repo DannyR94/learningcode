@@ -47,6 +47,76 @@
         The target attribute defines where to open the linked document. The defualt is "_self" which opens it in the current tab (this will happen also if no tagert attribute is specified). "_blank" opens it in a new tab. 
 -->
     <p><strong>Lorem ipsum dolor sit amet consectetur</strong>, adipisicing elit. <em>Debitis itaque dolores natus</em>, laboriosam <b>iste optio</b> <i>doloribus dolorem</i>, nisi dolor sunt tenetur commodi, <a href="http://google.com" target="_blank">quidem</a> illum accusamus?</p>
+<!-- Lists consist of a few different tags. 
+    <ul> defines an Unorder List where the list items are preceded by a symbol or icon.
+    <ol> defines an Ordered List where the list items are preceded by numbers
+    <li> are the items of the list -->
+    <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+        <li>List Item 4</li>
+    </ul>
+
+<!--The <table> tag defines a table.
+    The <thead> tag groups the header content in a table.
+    The <tbody> tag groups the body content in a table.
+    The <tfoot> tag groups the footer content in a table.
+    The <th> tag defines a header cell in a table.
+    The <tr> tag defines a row in a table.
+    The <td> tag defines a cell in a table.
+        By default <thead>, <tbody>, and <tfoot> do not effect the tables layout. However, you can use CSS to style these elements.
+    The <caption> tag defines a table caption (must ne inserted immediately after the <table> tag).
+    The <colgroup> tag specfies a group of columns in table. This is used to format multiple columns at once instead of repeating the styles for each cell, for each row.
+        The <col> tag specifies the column properties for each column within a <colgroup> element.-->
+    <table>
+        <caption>This is a Table</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Dan Russell</td>
+                <td>russelldan994@gmail.com</td>
+                <td>26</td>
+            </tr>
+            <tr>
+                <td>Cody Russell</td>
+                <td>codered10000@gmail.com</td>
+                <td>24</td>
+            </tr>
+            <tr>
+                <td>Kerry Morrish</td>
+                <td>mostjoyous75@gmail.com</td>
+                <td>40</td>
+            </tr>
+        </tbody>
+    </table>
+
+<!--The <br> tag defines a Line Break in a document
+    The <hr> tag defines a horizontail line in a document-->
+    <br><hr><br>
+
+<!--FORMS-->
+    <form action="process.php" method="POST">
+    <!--Forms are Inline level elements and run the width of the document by default.
+        By wrapping them in <div> elements (which are block level elements) they can be made to run vertically.-->
+    <div>
+        <label>First Name</label>
+        <input type="text" name="firstName">
+    </div>
+    <br>
+    <div>
+        <label>Last Name</label>
+        <input type="text" name="firstLast">
+    </div>
+    </form>
+
+
 </body>
 </html>
 
