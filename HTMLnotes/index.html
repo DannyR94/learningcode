@@ -106,17 +106,62 @@
     <!--Forms are Inline level elements and run the width of the document by default.
         By wrapping them in <div> elements (which are block level elements) they can be made to run vertically.-->
     <div>
+        <!--The input type "text" defines a single-line text input field.-->
         <label>First Name</label>
         <input type="text" name="firstName">
     </div>
     <br>
     <div>
         <label>Last Name</label>
-        <input type="text" name="firstLast">
+        <!--The placeholder value sets defualt text that shows up in the field that disappers when the user starts entering data-->
+        <input type="text" name="firstLast" placeholder="Enter Last Name">
     </div>
+    <br>
+    <div>
+        <!--The the input type "email" is for input fields that should contain an email.-->
+        <label>Email</label>
+        <input type="email" name="email"> 
+    </div>
+    <br>
+    <div>
+        <!--The <textarea> tag defines a resize-able block that can be recieve text input.-->
+        <label>Message</label>
+        <textarea name="message"></textarea>
+    </div>
+    <br>
+    <div>
+        <label>Gender</label>
+        <!--The <select> tag defines a dropdown menu 
+            The <option> tags define the items within the <select> element.-->
+        <select name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+    <br>
+    <div>
+        <label>Age</label>
+        <!--The input type "number" defines a numeric input field
+            Setting a "value" sets a defualt value for the field-->
+        <input type="number" name="age" value="30">
+    </div>
+    <br>
+    <div>
+        <label>Birthday</label>
+        <!--The input type "date" define a fields that should contain a date
+            Some browsers will fill the field with a date picker-->
+        <input type="date" name="birthday">
+    </div>
+    <br>
+    <!--The input type "submit" define a button for submitting form data to a form-handler-->
+    <input type="submit" name="submit" value="Submit">
     </form>
+    <br><hr><br>
+    <!--The <button> tag defines a button. On it's own it does nothing but can be hooked into JavaScript to gain functionality-->
+    <button>CLICK ME</button>
 
-
+    
 </body>
 </html>
 
