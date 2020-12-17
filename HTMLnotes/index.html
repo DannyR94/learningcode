@@ -24,11 +24,12 @@
     For example this <base> element is set to link to youtube.com, and the first header of the page set to link to the trending page on that site.
     The point is to not have to type out the full URL or target for every single link.
     NOTE: There can only be ONE <base> element in a document. -->
-    <!--<base href="https://www.youtube.com/" target="_blank">-->
+    <base href="images/" target="_blank">
 </head>
+
 <!-- The <body> element is the body of the web page or document.-->
 <body>
-    <h1><a href="feed/trending">Header 1</a></h1>
+    <h1><a href="turtle.jpg">Header 1</a></h1>
     <h2>Header 2</h2>
     <h3>Header 3</h3>
     <h4>Header 4</h4>
@@ -159,11 +160,28 @@
     </form>
     <br><hr><br>
     <!--The <button> tag defines a button. On it's own it does nothing but can be hooked into JavaScript to gain functionality-->
-    <button>CLICK ME</button>
+    <button>CLICK ME</button><br>
 
-<!--Image-->
-<img src="images/sample.jpg">
-    
+<!--The <img> tag defines an image. 
+    The "src" attribute is used to link to the images location. 
+    The "alt" attribute is used to describe the image if you cannot see it, like when it fails to load.-->
+<img src="sample.jpg" alt="Missing Image">
+
+<!--The <blockquote> tag is used to cite text. The "cite" attribute is where the link the source goes.-->
+<blockquote cite="https://heeeeeeeey.com/">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. At, ea explicabo eveniet beatae iste doloribus.
+</blockquote>
+
+<!--The <abbr> adds a description to an abbreviation that can be seen when the text is hovered over.-->
+<p>The <abbr title="World Wide Web">WWW</abbr> is awesome</p>
+
+<!--The <cite> tag denotes text that is being cited and is given formating, often italicized by defualt-->
+<p>This is an example of <cite>Cited Material</cite></p>
+
+
+
+
+
 </body>
 </html>
 
