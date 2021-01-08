@@ -1,0 +1,20 @@
+/* Colors can be entered one of the following:
+Color Names - red, blue, purple, etc.
+HTML5 Color Names - coral, misty rose, etc.
+Hexadecimal - #f4f4f4 which is a light gray
+RBG - (0,0,225) which is (red,green,blue)*/
+body{
+    background-color: #f4f4f4;
+    color:#555555;
+
+    /* See web_safe_fonts.png for a reference on what fonts can be used without the need to import special files */
+    /* Times New Roman is the defualt font */
+    font-family: Arial, Helvetica, sans-serif;
+    /* Defualt is 16px */
+    font-size: 16px;
+    /* Sets font thickness. Values from 100 to 900 are accepted. */
+    /* 400 is defualt and 700 is bold */
+    font-weight: 400;
+    /* Packing all the attributes into one line. */
+    /* font: normal 16px Arial, Helvetica, sans-serif; */
+}
