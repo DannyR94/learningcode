@@ -49,11 +49,24 @@ a:active{
 /* a:visited{
     color: purple;
 } */
+/* This clears any floats */
+.clr{
+    clear:both;
+}
 .container{
     width: 80%;
     margin: auto;
 }
-
+.button{
+    background-color: #333;
+    color: #fff;
+    padding: 10px 5px;
+    border: none;
+}
+.button:hover{
+    background: red;
+    color: white;
+}
 /* You need to use a " . " when defining a class*/
 .box-1{
 background-color: #333333;
@@ -91,7 +104,8 @@ margin-top: 20px;
 }
 /* By defualt lists have about 40px of padding */
 .categories ul{
-    padding: 0;
+    padding: 0px;
+    padding-left: 20px;
     list-style: none;  
 }
 .categories li{
@@ -101,3 +115,48 @@ margin-top: 20px;
     /* There doesn't seem to be a way to resize images using html/css code */
     list-style-image: url(images/checkmark.png);
 }
+.my-form{
+    padding: 20px;
+}
+.my-form .form-group{
+    padding-bottom: 15px;
+}
+.my-form label{
+    display: block;
+}
+/* This is targeting only inputs with the types of "text" and "textarea". Thus the button input is uneffected here. */
+.my-form input[type="text"], .my-form textarea{
+    padding: 8px;
+    width: 100%;
+}
+/* There is already a global style for buttons, but I'm leaving this here as an example */
+/* .my-form input[type="submit"]{
+    background-color: #333;
+    color: #fff;
+    padding: 10px 5px;
+    border: none;
+} */
+.block{
+    float: left;
+    width: 33.3%;
+    border: 1px solid #000;
+    pad: 10px;
+    /* This attribute takes into account border, padding, etc and makes it fit into the specified width */
+    box-sizing: border-box;
+}
+/* "id"s used a # instead of a . */
+#main-block{
+    float: left;
+    width: 70%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+#side-bar{
+    float: right;
+    width: 30%;
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    box-sizing: border-box;
+}
+/* Positioning in CSS */
