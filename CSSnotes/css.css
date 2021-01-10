@@ -33,7 +33,22 @@ body{
     /* Defines the space between lines of text */
     line-height: 1.6em;
 }
-
+a{
+    text-decoration: none;
+    color: #000000;   
+}
+/* This effects the links when they are hovered over */
+a:hover{
+    color: red;
+}
+/* This effects links when you click on them */
+a:active{
+    color: green;
+}
+/* This effects links that have already been visited */
+/* a:visited{
+    color: purple;
+} */
 .container{
     width: 80%;
     margin: auto;
@@ -51,7 +66,6 @@ border-left: 5px red solid;
 border-bottom: 25px green solid;
 margin-top: 20px;
 }
-
 /* This targets any "h1" that is within a "box-1" class */
 .box-1 h1{
     font-family: Tahoma;
@@ -60,4 +74,30 @@ margin-top: 20px;
     text-decoration: underline;
     text-transform: uppercase;
     letter-spacing: 0.2em;
+}
+.box-2 {
+    border: 3px dotted #cccccc;
+    padding: 20px;
+    margin: 20px 0;
+}
+/* border-raduis is used to curve the edges */
+.categories{
+    border: 1px #cccccc solid;
+    padding: 10px;
+    border-radius: 15px;
+}
+.categories h2{
+    text-align: center;
+}
+/* By defualt lists have about 40px of padding */
+.categories ul{
+    padding: 0;
+    list-style: none;  
+}
+.categories li{
+    padding-bottom: 8px;
+    /* The order the attributes are entered doesn't seemd to matter */
+    border-bottom: dotted #333333 1px;
+    /* There doesn't seem to be a way to resize images using html/css code */
+    list-style-image: url(images/checkmark.png);
 }
