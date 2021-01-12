@@ -191,3 +191,18 @@ margin-top: 20px;
     top: 400px;
     left: 20px;
 }
+/* pseudo classes are used to define a special state of an element*/
+/* refer to https://www.w3schools.com/css/css_pseudo_classes.asp for a list of all the pseudo classes as there are a lot of them */
+.my-list li:nth-child(odd){
+    background: pink;
+}
+.my-list li:nth-child(even){
+    background: green;
+}
+/* By utilizing "load order" the following pseudo classes overwrite the previous ones */
+.my-list li:first-child{
+    background: red;
+}
+.my-list li:last-child{
+    background: blue;
+}
