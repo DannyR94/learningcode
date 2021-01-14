@@ -2,21 +2,57 @@
 Line
 Comment */
 
+// Some definitions
+// Operator, performs some operation on single or multiple operands (data value) and produces a result.
+// Operand, is the object or quantity that is being opterated on
+    // example: 1 + 2, where the + sign is an operator and 1 and 2 are the operands.  
+// Function, are similar to procedures. For a procedure to quality as a function it should take some input and return an output where this is some obvious relationship between the input and output.
+// Block, are abtract layers. Think inception.
+// Scope, refers to the current context of the code, which determines the accessiblity of variables to JavaScript. Scope has two types, local and global. Global vaviables are thise declared outside of the block. Local variables are those declared inside of a block.
+
+// Declarations
+// "var", "let", and "const"
+// var declares a varaible that is globally scoped. Don't use it unless you need to.
+// let declares a varaible that is limited to the scope of a block statement.
+// const declares a read-only named constant.
+
 // String, Numbers, Boolean, null, undefined
 
+// String example
 const name = 'John';
+// Number example
 const age = 30;
+const rating = 4.5;
+// Boolean example
+const isCool = true;
+// null example
+const x = null;
+// Undefined example
+const y = undefined;
+let z;
+// this 
+//console.log(typeof x);
+//this
 
 // Concatenation
-// console.log('My name is ' + name + ' and I am ' + age);
+//console.log('My name is ' + name + ' and I am ' + age);
+// Using template strings is normally easier than concatenating
 
 // Template Strings, use grave accents ` not single ' or double " quotes 
 const hello = `My name is ${name} and I am ${age}`;
 
 console.log(hello);
 
+// Properties and Methods
+// Properties don't have ()s
+// 
+// Methods have ()s
+// A method is a function that is associated with an oject
+
 const s = 'Hello World!';
 
+// Outputs the length property of the string object
+console.log(s.length);
 // Makes the string all Upper Case
 console.log(s.toUpperCase());
 // Makes the string all Lower Case
@@ -128,7 +164,7 @@ for(let i = 0; i < 10; i++) {
     console.log(`For Loop Number: ${i}`);
 }
 
-// While
+// While Loop
 let i = 0;
 while(i < 10)
     {
