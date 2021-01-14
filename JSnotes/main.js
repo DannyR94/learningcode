@@ -2,11 +2,11 @@
 Line
 Comment */
 
-// Some definitions
+// Some Definitions
 // Operator, performs some operation on single or multiple operands (data value) and produces a result.
 // Operand, is the object or quantity that is being opterated on
     // example: 1 + 2, where the + sign is an operator and 1 and 2 are the operands.  
-// Function, are similar to procedures. For a procedure to quality as a function it should take some input and return an output where this is some obvious relationship between the input and output.
+// Function, are similar to procedures. For a procedure to quality as a function it should take some input and return an output where there is some obvious relationship between the input and output.
 // Block, are abtract layers. Think inception.
 // Scope, refers to the current context of the code, which determines the accessiblity of variables to JavaScript. Scope has two types, local and global. Global vaviables are thise declared outside of the block. Local variables are those declared inside of a block.
 
@@ -160,7 +160,7 @@ console.log(todoJSON);
 // Loops
 
 // For  Variable, Condition, Incriment
-for(let i = 0; i < 10; i++) {
+for(let i = 0; i < 10; ++i) {
     console.log(`For Loop Number: ${i}`);
 }
 
