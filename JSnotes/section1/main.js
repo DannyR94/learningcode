@@ -160,7 +160,7 @@ console.log(todoJSON);
 // Loops
 
 // For  Variable, Condition, Incriment
-for(let i = 0; i < 10; ++i) {
+for(let i = 0; i < 10; i++) {
     console.log(`For Loop Number: ${i}`);
 }
 
@@ -177,7 +177,8 @@ for(let i = 0; i < todos.length; i++) {
     console.log(todos[i].text);
 }
 
-//For of Loop
+// For of Loop
+// Preforms a loop for each object or value in the array. So instead of spitting out the entire array all at once the for of loop will spit out each value one by one.
 for(let todo of todos) {
     console.log(todo.isCompleted);
 }
@@ -198,10 +199,94 @@ console.log(todoText);
 pass the test implemented by the provided function */
 const todoCompleted = todos.filter(function(todo) {
     return todo.isCompleted == true;
-});
+}).map(function(todo) {
+    return todo.text;
+})
 console.log(todoCompleted);
 
+// == Only checks to see if the value matches. === Also checks for matching data types.
+const p = 6;
+const l = 6;
+// Pay Attention to the syntax of "if", "else if", and "else" statements.
+// || means or, && means and
+if(p > 5 && l > 5) {
+    console.log('p and l are greater than 5');
+} else if(p > 5) {
+    console.log('p is greater than 5 but l is less than or equal to 5');
+} else if(l > 5) {
+    console.log('l is greater than 5 but p is less than or equal to 5');  
+} else {
+    console.log('p and l are less than or equal to 5');   
+}
+
+// Conditional (ternary) Operator
+// ? means then, : means else
+const v = 11;
+const color = v > 10 ? 'red' : 'blue';
+
+// A switch statement evalutes an experssion, matching the experssion's value to a case clause, and executes statements associated with that case.
+switch(color) {
+    case 'red':
+        console.log('color is red');
+        break;
+    case 'blue':
+        console.log('color is blue');
+        break;
+    default:
+        console.log('color is NOT red or blue');
+        break;
+}
+
+// Note that "function" is only creating the a new function (in this case I've named it "addNums")
+function addNums(num1, num2) {
+    console.log(num1 + num2);
+}
+// Calling the function that was just made.
+addNums(4,5);
+/* I Commented this out since the class I created below does the same exact thing.
+
+// Constructor Funtion
+function Person(firstName, lastName, dob) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = new Date(dob);
+    this.getBirthYear = function() {
+        return this.dob.getFullYear();
+    }
+    // This is a simply way to do it
+    this.fullName1 = function() {
+        return firstName + ' ' + lastName;
+    }
+    // This uses object literals but does the same thing
+    this.fullName2 = function() {
+        return `${this.firstName} ${this.lastName}`;
+    }   
+}
+*/
 
 
+// Class
+class Person {
+    constructor(firstName, lastName, dob) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dob = new Date(dob);     
+    }
+
+    getBirthYear(){
+        return this.dob.getFullYear();
+    }
+
+    getFullName(){
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
 
 
+// Instantiate Object
+const person1 = new Person('John', 'Doe', '4-18-1980');
+
+// There are a lot of methods for "Date" objects.
+console.log(person1.dob.getFullYear());
+console.log(person1.getBirthYear());
+console.log(person1.getFullName());
