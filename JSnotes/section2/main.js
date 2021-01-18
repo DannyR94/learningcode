@@ -1,17 +1,17 @@
-console.log(window);
+const myForm = document.querySelector('#my-form');
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const msg = document.querySelector('.msg');
+const userList = document.querySelector('#user');
 
+myForm.addEventListener('submit', onSubmit);
 
-// Single Element Selectors
-document.getElementById('my-form');
-document.querySelector('.container');
-console.log(document.getElementById('.item.firstChild.nodeValue'));
+function onSubmit(e) {
+    e.preventDefault();
 
-// Multiple Element Selectors
-console.log(document.querySelectorAll('.item'));
-// The . is not needed since it only gets classes
-console.log(document.getElementsByClassName('item'));
-console.log(document.getElementsByTagName('li'));
-
-const items = document.querySelectorAll('.item');
-items.forEach((item) => console.log(item));
-
+if(nameInput.value === '' || emailInput.value === '') {
+    alert('Please complete the fields');
+} else {
+    console.log('success');
+    }
+}
