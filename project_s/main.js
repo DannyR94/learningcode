@@ -5,7 +5,7 @@ myNavBar.addEventListener('mouseout', navHoverOff, false);
 
 function navHoverOn()
 {
-    myNavBar.setAttribute('style', 'color:black;', 'background-color:green;',)
+    myNavBar.setAttribute('style', 'background-color:green;',)
 }
 
 function navHoverOff()
