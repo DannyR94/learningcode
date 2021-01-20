@@ -16,3 +16,4 @@ if(nameInput.value === '' || emailInput.value === '') {
     }
 }
 // test commit from laptop. Also sync snippets!
+// test 2
