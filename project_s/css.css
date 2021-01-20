@@ -1,0 +1,63 @@
+#main-header {
+    height: 150px;
+    width: 800px;
+    border: 1px solid black;
+    position: relative;
+    background-image: url(images/homebanner.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    background-size: 800px 150px;
+}
+
+#main-header h1 {
+    color: #fff;
+    padding: 30px;
+}
+/* This makes the banner text a link */
+/*
+#main-header a {
+    text-decoration: none;
+    color: white;
+}
+#main-header a:hover {
+    color: green;
+}
+#main-header a:visited {
+    color: #fff;
+}
+*/
+
+.container {
+    width: 800px;
+    text-align: center;
+}
+
+#navbar {
+background-color: #f3f3f3;
+}
+
+#navbar ul {
+    padding: 0;
+    list-style-type: none;
+
+}
+
+#navbar li {
+    background-color: #333;
+    color: #fff;
+    display: inline-block;
+    border: 1px solid #000;
+    padding-left: 10px;
+    margin: 0px;
+}
+
+#navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding-right: 15px;
+}
+
+#navbar a:hover {
+    color: green;
+}
