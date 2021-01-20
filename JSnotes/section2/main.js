@@ -15,3 +15,4 @@ if(nameInput.value === '' || emailInput.value === '') {
     console.log('success');
     }
 }
+// test commit from laptop. Also sync snippets!
