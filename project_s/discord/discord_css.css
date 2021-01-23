@@ -26,13 +26,22 @@
     border: 1px #333 solid;
 } */
 
+.box-1 {
+    flex: 1;
+}
+
 .box-1 h1 {
     text-align: center;
 }
 
+.box-2 {
+    flex: 1;
+}
+
 .box-2 h3 {
     text-decoration: underline;
-    padding-bottom: 0;
+    text-align: center;
+    padding-bottom: 5px;
     margin-bottom: 5px;
 }
 
@@ -43,11 +52,14 @@
 
 .box-2 li {
     list-style: none;
+    text-align: center;
 }
 
 .box-3 {
     display: flex;
     justify-content: center;
+    /* border: 1px black solid; */
+    flex: 2;
 }
 
 .discordJoin {
@@ -62,6 +74,7 @@
 .box-3 a {
     text-decoration: none;
     color: #fff;
+    padding-top: 60px;
 }
 
 .discordJoin a:hover, .discordJoin:hover {
@@ -73,7 +86,8 @@
 
 .box-4 {
     text-align: center;
-    padding-top: 125px;
+    flex: 1;
+    /* padding-top: 100px; */
 }
 .box-4 a {
     text-decoration: underline;
