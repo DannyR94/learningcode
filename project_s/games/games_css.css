@@ -1,0 +1,32 @@
+#main-header h1 {
+    text-align: center;
+}
+
+.container-0 {
+    border: 1px black solid;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+.box {
+    border: 1px black solid;
+    justify-content: center;
+}
+
+.box img {
+    height: 100%;
+    width: auto;
+    
+}
+
+.box img:hover {
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+img {
+
+}
