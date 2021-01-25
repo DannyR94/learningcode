@@ -4,13 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Gallery</title>
+    <link rel="stylesheet" href="gallery_css.css">
 </head>
 <body>
-    <a href="../index.html">Home Page</a>
-    <a href ="gallery_images/pic_1.jpg"><img src="gallery_images/pic_1_mini.jpg" alt=""></a>
-    <a href ="gallery_images/pic_2.jpg"><img src="gallery_images/pic_2_mini.jpg" alt=""></a>
-    <a href ="gallery_images/pic_3.jpg"><img src="gallery_images/pic_3_mini.jpg" alt=""></a>
-    <a href ="gallery_images/pic_4.jpg"><img src="gallery_images/pic_4_mini.jpg" alt=""></a>
-    <a href ="gallery_images/pic_5.jpg"><img src="gallery_images/pic_5_mini.jpg" alt=""></a>
+    <div class="container-0">
+        <header id="main-header">
+                <h1>Teh Gallery</h1>
+        </header>
+        <nav id="navbar">
+            <a href="../index.html">
+                <div class="box">
+                    <h3 class>Home</h3>
+                </div>
+            </a>
+            <a href="../discord/discord.html">
+                <div class="box">
+                    <h3>Discord</h3>
+                </div>
+            </a>
+            <a href="../aboutus/aboutus.html">
+                <div class="box">
+                    <h3>About Us</h3>
+                </div>
+            </a>
+            <a href="../games/games.html">
+                <div class="box">
+                    <h3>Games</h3>
+                </div>
+            </a>
+            <a href="#">
+                <div onclick="easter()" class="box">
+                    <h3>Gallery</h3>
+                </div>
+            </a>
+            <a href="../tnp/tnp.html">
+                <div class="box">
+                    <h3>Guides</h3>
+                </div>
+            </a>
+        </nav>
+    <div class="container-2">
+        <!-- Thumbnails need to be width: 200px by height: 112px -->
+        <a href ="gallery_images/pic_1.jpg"><img src="gallery_images/thumbnails/pic_1_mini.jpg" title="Darst playing Undermine (3rd Bossroom Entrance)" alt="darst playing undermine"></a>
+        <a href ="gallery_images/pic_2.jpg"><img src="gallery_images/thumbnails/pic_2_mini.jpg" alt=""></a>
+        <a href ="gallery_images/pic_3.jpg"><img src="gallery_images/thumbnails/pic_3_mini.jpg" alt=""></a>
+        <a href ="gallery_images/pic_4.jpg"><img src="gallery_images/thumbnails/pic_4_mini.jpg" alt=""></a>
+        <a href ="gallery_images/pic_5.jpg"><img src="gallery_images/thumbnails/pic_5_mini.jpg" alt=""></a>
+    </div>
+</div>
+<script src="../main.js"></script>
 </body>
 </html>

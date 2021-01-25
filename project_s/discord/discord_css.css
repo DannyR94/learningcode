@@ -1,5 +1,54 @@
 .container-0 {
     display: flex;
+    flex-direction: column;
+    width: 800px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main-header {
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    width: 800px;
+    background-image: url(../images/homebanner.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    background-size: 800px 150px;
+    text-align: center;
+}
+
+#main-header h1 {
+    color: #fff;
+    padding: 30px;
+}
+
+#navbar {
+    display: flex;
+    position: sticky;
+    top: 0;
+    text-align: center;
+    width: 800px;
+}
+
+#navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    width: 160px;
+    height: 50px;
+    background-color: #333;
+    background-image: linear-gradient(to top, #333, rgb(90, 90, 90));
+}
+
+#navbar a:hover {
+    color: black;
+    background-image: linear-gradient(to top, rgb(90, 90, 90), #333);
+}
+
+.container-1 {
+    display: flex;
     width: 800px;
     justify-content: center;
     margin-left: auto;
@@ -7,7 +56,7 @@
     background-color: #f3f3f3;
 }
 
-.container-1 {
+.container-2 {
     display: flex;
     flex: 60%;
     /* border: 1px #000 solid; */

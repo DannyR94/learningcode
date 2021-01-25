@@ -1,8 +1,14 @@
+.container-0 {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #main-header {
     display: flex;
     flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
     height: 150px;
     width: 800px;
     background-image: url(../images/homebanner.png);
@@ -14,6 +20,7 @@
 
 #main-header h1 {
     padding-top: 30px;
+    color: white;
 }
 
 #main-header a {
@@ -21,7 +28,7 @@
     color: white;
 }
 
-.container-0 {
+.container-1 {
     display: flex;
     justify-content: center;
 }
@@ -49,7 +56,7 @@
     background-image: linear-gradient(to top, rgb(90, 90, 90), #333);
 }
 
-.container-1 {
+.container-2 {
     background-color: #f3f3f3;
     display: flex;
     flex-wrap: wrap;
@@ -59,11 +66,11 @@
     width: 800px;
 }
 
-.container-1 div {
+.container-2 div {
     margin: 5px;
 }
 
-.container-1 p {
+.container-2 p {
     padding-top: 60px;
     color: rgba(255, 255, 255, 0);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -71,7 +78,7 @@
     font-size: 30px;
 }
 
-.container-1 a {
+.container-2 a {
     color: rgba(255, 255, 255, 0);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-decoration: bold;
