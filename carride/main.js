@@ -1,9 +1,23 @@
-// Some hippie dippie shit here
-const eqzr = 100;
+var details = [
+    'd', 'a', 'n', 'i', 'e', 'l'
+ ];
+ var isPresent;
+ var records = [];
+ var matchWords = ['a', 'e'];
+ for (var index = 0; index < details.length; index++){
+    isPresent = true;
+    for (var outer = 0; outer< matchWords.length; outer++) {
+       if (details[index].indexOf(matchWords[outer]) === -1) {
+          isPresent = false;
+          break;
+       }
+    }
+    if (isPresent){
+       records.push(details[index]);
+    }
+ }
+ console.log(records)
 
-function star(firstName, lastName, birthYear, birthMonth){
-    console.log((firstName.length + lastName.length * birthYear / birthMonth.length) / eqzr);
-}
 
 
 
@@ -11,11 +25,14 @@ function star(firstName, lastName, birthYear, birthMonth){
 
 
 
+// var my_array = ['d', 'a', 'n', 'i' ,'e' ,'l']
 
 
+// var find = my_array.filter(function(result) {
+//     return result.param1 === 'a' || result.param2 === 'e';
+// });
 
-
-
+// console.log(find);
 
 
 
