@@ -77,17 +77,68 @@
 // secondItem.style.color = "coral";
 
 // QUERYSELECTORALL //
-var titles = document.querySelectorAll('.title');
-console.log(titles);
-titles[0].textContent = "Hello";
+// var titles = document.querySelectorAll('.title');
+// console.log(titles);
+// titles[0].textContent = "Hello";
 
-var odd = document.querySelectorAll('li:nth-child(odd)');
-var even = document.querySelectorAll('li:nth-child(even)');
+// var odd = document.querySelectorAll('li:nth-child(odd)');
+// var even = document.querySelectorAll('li:nth-child(even)');
 
-console.log(odd.length);
-console.log(even.length);
+// console.log(odd.length);
+// console.log(even.length);
 
-for(var i = 0; i < odd.length; i++) {
-    odd[i].style.backgroundColor = '#f4f4f4';
-    even[i].style.backgroundColor = 'darkgrey';
-}
+// for(var i = 0; i < odd.length; i++) {
+//     odd[i].style.backgroundColor = '#f4f4f4';
+//     even[i].style.backgroundColor = 'darkgrey';
+// }
+
+// TRAVERSING THE DOM //
+var itemList = document.querySelector('#items');
+// parentNode
+// console.log(itemList.parentNode);
+// itemList.parentNode.style.backgroundColor = '#f4f4f4';
+// console.log(itemList.parentNode.parentNode);
+
+// parentElement
+// console.log(itemList.parentElement);
+// itemList.parentElement.style.backgroundColor = '#f4f4f4';
+// console.log(itemList.parentElement.parentElement);
+
+// childNodes //
+// console.log(itemList.childNodes);
+// console.log(itemList.children[1]);
+// itemList.children[1].style.backgroundColor = 'yellow';
+
+// firstChild
+// // console.log(itemList.firstChild);
+// // firstElementChild
+// console.log(itemList.firstElementChild);
+// itemList.firstElementChild.textContent = 'Hello 1';
+
+// lastChild
+// console.log(itemList.lastChild);
+// lastElementChild
+// console.log(itemList.lastElementChild);
+// itemList.lastElementChild.textContent = 'Hello 4';
+
+// nextSibling
+// console.log(itemList.nextSibling);
+// nextElementSibling
+// 
+
+// previousSibling
+console.log(itemList.previousSibling);
+// previousElementSibling
+console.log(itemList.previousElementSibling);
+
+
+
+
+
+
+
+
+
+
+
+
