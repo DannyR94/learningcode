@@ -1,0 +1,22 @@
+.container-0 {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+
+#viewport {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 150px 150px 150px 150px;
+    border: 1px black solid;
+}
+
+#ctrlBar {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+    padding: 0px;
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: auto;
+}
