@@ -1,39 +1,62 @@
 const viewport = document.getElementById('viewport');
-const rightBtn = document.getElementById('move-right');
-const leftBtn = document.getElementById('move-left');
-const forwardBtn = document.getElementById('move-forward');
-const useBtn = document.getElementById('use');
-var posX = -300;
-var posY = 0;
-
-// Starting Location
-viewport.style.backgroundImage = "url('map_1.png')";
-viewport.style.backgroundSize = "3000px 3000px";
-viewport.style.backgroundRepeat = "no-repeat";
-viewport.style.backgroundPosition = posX +'px ' + posY +'px';
+const clickBtn = document.getElementById('clickBtn');
+const moneyBal = document.getElementById('moneyBal');
+const buyMenu = document.getElementById('buyMenu');
+const ctrlBar = document.getElementById('ctrlBar');
 
 
+// Create sections for each button/buy option
+const cfeStnd = document.getElementById('cfeStnd');
+const cfeStndAmt = document.getElementById('cfeStndAmt');
 
-// Movement
-rightBtn.addEventListener('click', moveRight);
-leftBtn.addEventListener('click', moveLeft);
-forwardBtn.addEventListener('click', moveForward);
-useBtn.addEventListener('click', use);
+var li = document.createElement('li');
+var input = document.createElement('input');
 
-function moveRight() {
-    console.log('You Turn Right');
-}
-function moveLeft() {
-    console.log('You Turn Left');
-}
-function moveForward() {
-    console.log('You Walk Forward');
-}
-function use() {
-    console.log('You preform an action');
+
+var bank = 50;
+var hasCfeStnd = false;
+
+//Start the game
+moneyBal.innerHTML = '$'+ bank;
+clickBtn.addEventListener('click', basicClk);
+cfeStnd.addEventListener('click', buyCfeStnd);
+
+// Generates $1
+function basicClk() {
+    bank += 1;
+    moneyBal.innerHTML = '$'+ bank;
 }
 
+// Buys a Coffee Stand
+function buyCfeStnd() {
+    if(hasCfeStnd === false && bank >= 50){
+        li.appendChild(input);
+        li.setAttribute("id", "buyCfeBrwy");
+        input.setAttribute("type", "button");
+        input.setAttribute("value", "Buy a Coffee Brewery");
+        buyMenu.appendChild(li);
+        bank -= 50;
+        moneyBal.innerHTML = '$'+ bank;
+        hasCfeStnd = true;
+    } else if(hasCfeStnd === true && bank >= 50){
+        bank -= 50;
+        moneyBal.innerHTML = '$'+ bank;
+    } else {
+        alert('you need more money');
+    }
+}
 
 
+console.log(bank);
+console.log(ctrlBar);
 
-console.log(viewport);
+// Anti-Cheat
+// document.addEventListener("keydown", devMode);
+
+// function devMode(e){
+//     e.preventDefault();
+//     var code = e.keyCode;
+//     if (e.keyCode){
+//         clickBtn.innerHTML = '<input type="button" value="IM A DIRTY CHEATER">';
+//     }
+// }

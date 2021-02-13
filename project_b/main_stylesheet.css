@@ -4,17 +4,41 @@
     flex-direction: column;
 }
 
-#viewport {
+#moneyBal {
+    text-align: center;
+    padding-bottom: 5px;
+    color: darkgreen;
+}
+
+.container-1 {
+    display: flex;
+    align-content: center;
+    flex-direction: row;
     margin-left: auto;
     margin-right: auto;
+}
+
+#viewport {
     padding: 150px 150px 150px 150px;
     border: 1px black solid;
+    background-color: grey;
+    justify-self: center;
+
+}
+
+#buyMenu {
+    display: flex;
+    flex-direction: column;
+    border: 1px black solid;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
 }
 
 #ctrlBar {
     display: flex;
-    justify-content: space-between;
-    width: 250px;
+    justify-content: center;
     padding: 0px;
     list-style-type: none;
     margin-left: auto;
