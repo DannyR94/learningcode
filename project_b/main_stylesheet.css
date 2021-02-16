@@ -36,6 +36,72 @@
 
 }
 
+/* Temporary, needs to be done in JS and edits some part of the DOM */
+.tooltip {
+        display: none;
+        width: 120px;
+        background-color: grey;
+        color: black;
+        text-align: left;
+        padding: 5px 0;
+        top: -0px;
+        border-radius: 15px;
+        position: absolute;
+        z-index: 1;
+}
+
+#cfeStnd:hover .tooltip{
+    display: inherit;
+}
+
+#cfeBrwy {
+    display: none;
+}
+
+#cfeBrwy:hover .tooltip{
+    display: inherit;
+}
+
+#cfeSilo {
+    display: none;
+}
+
+#cfeSilo:hover .tooltip{
+    display: inherit;
+}
+
+#cfeFcty {
+    display: none;
+}
+
+#cfeFcty:hover .tooltip{
+    display: inherit;
+}
+
+#cfePort {
+    display: none;
+}
+
+#cfePort:hover .tooltip{
+    display: inherit;
+}
+
+#cfeX {
+    display: none;
+}
+
+#cfeX:hover .tooltip{
+    display: inherit;
+}
+
+#cfeUnvs {
+    display: none;
+}
+
+#cfeUnvs:hover .tooltip{
+    display: inherit;
+}
+
 #ctrlBar {
     display: flex;
     justify-content: center;
@@ -43,4 +109,7 @@
     list-style-type: none;
     margin-left: auto;
     margin-right: auto;
+}
+p {
+    text-align: center;
 }
