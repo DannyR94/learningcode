@@ -65,6 +65,10 @@ function basicClk() {
 const saveBtn = document.getElementById('saveBtn');
 saveBtn.addEventListener('click', saveGame)
 
+// Saves game when window is closed or reloaded
+window.onbeforeunload = saveGame;
+
+
 function saveGame() {
 var gameState = [bank, cfeStndAmt, cfeBrwyAmt, cfeSiloAmt, cfeFctyAmt, cfePortAmt, cfeXAmt, cfeUnvsAmt];
 localStorage.setItem ('gameState', JSON.stringify(gameState));
@@ -75,6 +79,14 @@ console.log(gameState);
 restartBtn = document.getElementById('restartBtn');
 restartBtn.addEventListener('click', restartGame);
 function restartGame() {
+    bank = 0;
+    cfeStndAmt = 0;
+    cfeBrwyAmt = 0;
+    cfeSiloAmt = 0;
+    cfeFctyAmt = 0;
+    cfePortAmt = 0;
+    cfeXAmt = 0;
+    cfeUnvsAmt = 0;
     localStorage.clear();
     var gameState = [0, 0, 0, 0, 0, 0, 0, 0];
     localStorage.setItem ('gameState', JSON.stringify(gameState));
