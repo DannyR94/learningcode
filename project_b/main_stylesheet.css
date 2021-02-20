@@ -1,3 +1,20 @@
+#wrapper {
+    background: url("images/coffee_background.jpg");
+    background-size: 300%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: animation 100s linear infinite;
+}
+  
+@keyframes animation {
+     100%{
+      background-position:0px -3000px;
+    }
+}
+
 .container-0 {
     display: flex;
     align-content: center;
@@ -113,3 +130,4 @@
 p {
     text-align: center;
 }
+ 

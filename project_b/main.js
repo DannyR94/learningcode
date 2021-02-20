@@ -3,6 +3,7 @@ const clickBtn = document.getElementById('clickBtn');
 const moneyBal = document.getElementById('moneyBal');
 const buyMenu = document.getElementById('buyMenu');
 const ctrlBar = document.getElementById('ctrlBar');
+const wrapper = document.getElementById('wrapper');
 
 // Legacy Varibles
 var li = document.createElement('li');
@@ -29,26 +30,35 @@ function renderUI() {
     if(cfeStndAmt >= 1){
         cfeBrwy.style.display = 'inherit';
         cfeBrwyCntr.textContent = "x"+cfeBrwyAmt;
+        wrapper.style.backgroundSize = '200%';
     }
     if(cfeBrwyAmt >= 1){
         cfeSilo.style.display = 'inherit';
         cfeSiloCntr.textContent = "x"+cfeSiloAmt;
+        wrapper.style.backgroundSize = '100%';
     }
     if(cfeSiloAmt >= 1){
         cfeFcty.style.display = 'inherit';
         cfeFctyCntr.textContent = "x"+cfeFctyAmt;
+        wrapper.style.backgroundSize = '50%';
     }
     if(cfeFctyAmt >= 1){
         cfePort.style.display = 'inherit';
         cfePortCntr.textContent = "x"+cfePortAmt;
+        wrapper.style.backgroundSize = '25%';
     }
     if(cfePortAmt >= 1){
         cfeX.style.display = 'inherit';
         cfeXCntr.textContent = "x"+cfeXAmt;
+        wrapper.style.backgroundSize = '10%';
     }
     if(cfeXAmt >= 1){
         cfeUnvs.style.display = 'inherit';
         cfeUnvsCntr.textContent = "x"+cfeUnvsAmt;
+        wrapper.style.backgroundSize = '5%';
+    }
+    if(cfeUnvsAmt >= 1){
+        wrapper.style.backgroundSize = '1%';
     }
 }
 
@@ -58,7 +68,16 @@ clickBtn.addEventListener('click', basicClk);
 function basicClk() {
     clkWorth = 1 + ((cfeStndAmt * 1) + (cfeBrwyAmt * 5) + (cfeSiloAmt * 15) + (cfeFctyAmt * 30) + (cfePortAmt * 100) + (cfeXAmt * 500) + (cfeUnvsAmt * 1000));
     bank += clkWorth;
+    // bank += 5000000000; Debug-mode
     moneyBal.innerHTML = '$'+ bank;
+    
+    // for(i = 100; i > 0; i--){
+    //     console.log(i);
+    //     let e = i;
+    //     setTimeout(function() {
+    //         console.log(e);
+    //     }, 10 * (100-i));
+    // };
 }
 
 // Saves Game
@@ -109,6 +128,12 @@ cfeStnd.addEventListener('click', buyCfeStnd);
 function buyCfeStnd() {
     if(cfeStndAmt <= 0 && bank >= cfeStndBase){
         cfeBrwy.style.display = 'inherit';
+        for(i = 100; i > 0; i--){
+            let e = i;
+            setTimeout(function() {
+                wrapper.style.backgroundSize = (e += 200)+'%';
+            }, 10 * (100-i));
+        };
         bank -= cfeStndBase;
         moneyBal.innerHTML = '$'+ bank;
         cfeStndAmt += 1;
@@ -133,6 +158,13 @@ cfeBrwy.addEventListener('click', buyCfeBrwy);
 function buyCfeBrwy() {
     if(cfeBrwyAmt <= 0 && bank >= cfeBrwyBase){
         cfeSilo.style.display = 'inherit';
+        for(i = 100; i > 0; i--){
+            let e = i;
+            setTimeout(function() {
+                wrapper.style.backgroundSize = (e += 100)+'%';
+            }, 10 * (100-i));
+        };
+        wrapper.style.backgroundSize = '100%';
         bank -= cfeBrwyBase;
         moneyBal.innerHTML = '$'+ bank;
         cfeBrwyAmt += 1;
@@ -157,6 +189,13 @@ cfeSilo.addEventListener('click', buyCfeSilo);
 function buyCfeSilo() {
     if(cfeSiloAmt <= 0 && bank >= cfeSiloBase){
         cfeFcty.style.display = 'inherit';
+        for(i = 100; i > 0; i--){
+            let e = i;
+            setTimeout(function() {
+                wrapper.style.backgroundSize = ((e += 100)/2)+'%';
+            }, 10 * (100-i));
+        };
+        wrapper.style.backgroundSize = '50%';
         bank -= cfeSiloBase;
         moneyBal.innerHTML = '$'+ bank;
         cfeSiloAmt += 1;
@@ -181,6 +220,13 @@ cfeFcty.addEventListener('click', buyCfeFcty);
 function buyCfeFcty() {
     if(cfeFctyAmt <= 0 && bank >= cfeCfeBase){
         cfePort.style.display = 'inherit';
+        for(i = 100; i > 0; i--){
+            let e = i;
+            setTimeout(function() {
+                wrapper.style.backgroundSize = ((e += 100)/4)+'%';
+            }, 10 * (100-i));
+        };
+        wrapper.style.backgroundSize = '25%';
         bank -= cfeCfeBase;
         moneyBal.innerHTML = '$'+ bank;
         cfeFctyAmt += 1;
@@ -205,6 +251,13 @@ cfePort.addEventListener('click', buyCfePort);
 function buyCfePort() {
     if(cfePortAmt <= 0 && bank >= cfePortBase){
         cfeX.style.display = 'inherit';
+        for(i = 100; i > 0; i--){
+            let e = i;
+            setTimeout(function() {
+                wrapper.style.backgroundSize = ((e += 100)/10)+'%';
+            }, 10 * (100-i));
+        };
+        wrapper.style.backgroundSize = '10%';
         bank -= cfePortBase;
         moneyBal.innerHTML = '$'+ bank;
         cfePortAmt += 1;
@@ -229,6 +282,13 @@ cfeX.addEventListener('click', buyCfeX);
 function buyCfeX() {
     if(cfeXAmt <= 0 && bank >= cfeXBase){
         cfeUnvs.style.display = 'inherit';
+        for(i = 100; i > 0; i--){
+            let e = i;
+            setTimeout(function() {
+                wrapper.style.backgroundSize = ((e += 100)/25)+'%';
+            }, 10 * (100-i));
+        };
+        wrapper.style.backgroundSize = '5%';
         bank -= cfeXBase;
         moneyBal.innerHTML = '$'+ bank;
         cfeXAmt += 1;
@@ -253,6 +313,13 @@ cfeUnvs.addEventListener('click', buyCfeUnvs);
 function buyCfeUnvs() {
     if(cfeUnvsAmt <= 0 && bank >= cfeUnvsBase){
         // cfeSomething.style.display = 'inherit';
+        wrapper.style.backgroundSize = '1%';
+        for(i = 100; i > 0; i--){
+            let e = i;
+            setTimeout(function() {
+                wrapper.style.backgroundSize = ((e += 100)/99)+'%';
+            }, 10 * (100-i));
+        };
         bank -= cfeUnvsBase;
         moneyBal.innerHTML = '$'+ bank;
         cfeUnvsAmt += 1;
