@@ -1,0 +1,177 @@
+#wrapper {
+    display: flex;
+    font-family: Tahoma, 'Segoe UI', Geneva, Verdana, sans-serif;
+}
+
+input {
+    border: none;
+    text-decoration: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    border: black 1px solid;
+    display: flex;
+    height: 100vh;
+    width: 33vw;
+}
+
+#shopDisplay {
+    display: flex;
+    flex-direction: column;
+}
+
+.displayBox {
+    border-bottom: black 1px solid;
+    height: 14.3vh;
+}
+
+#menuDisplay {
+    display: flex;
+    flex-direction: column;
+    font-family: Impact;
+}
+
+#shopMenu {
+    /* border: black 1px solid; */
+    display: flex;
+    flex-direction: row;
+    flex-grow: 5;
+    width: 100%;
+}
+
+.shopBtns {
+    /* border: black 1px solid; */
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+#dscrBtns {
+    width: 70%;
+}
+
+#dscrBtns input {
+    color: transparent;
+}
+
+#buy1Btns, #buy10Btns, #buy100Btns {
+    width: 10%;
+}
+
+.shopCntr {
+    display: flex;
+    padding-right: 5px;
+    color: transparent;
+    justify-content: center;
+    align-items: center;
+}
+
+.buyBtn, .shopCntr {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.dscrBtn {
+    text-align: right;
+    border-left: black 1px solid ;
+    padding-right: 10px;
+    flex-grow: 1;
+}
+
+.dscrBtn {
+    font-weight: bold;
+}
+
+.buyBtn {
+    font-family: Impact;
+    border-left: black 1px solid;
+}
+
+.dscrBtn:nth-child(odd), .buyBtn:nth-child(odd), .shopCntr:nth-child(odd) {
+    background-image: linear-gradient(rgb(116, 83, 40), rgb(87, 62, 30), rgb(56, 40, 20));
+}
+.dscrBtn:nth-child(odd):hover, .buyBtn:nth-child(odd):hover {
+    background-image: linear-gradient(rgb(56, 40, 20), rgb(87, 62, 30), rgb(116, 83, 40));
+}
+.dscrBtn:nth-child(even), .buyBtn:nth-child(even), .shopCntr:nth-child(even) {
+    background-image: linear-gradient(rgb(161, 115, 55), rgb(134, 97, 47), rgb(94, 67, 34));
+}
+.dscrBtn:nth-child(even):hover, .buyBtn:nth-child(even):hover {
+    background-image: linear-gradient(rgb(94, 67, 34),rgb(134, 97, 47), rgb(161, 115, 55));
+}
+
+#clickMenu {
+    display: flex;
+    flex-direction: column;
+    /* border: black 1px solid; */
+    color: red;
+    align-items: center;
+    justify-content: space-around;
+    flex-grow: 5;
+}
+
+#moneyDisplay {
+    color:green;
+    text-align: center;
+    /* width: 67%; */
+}
+
+#clickBtn {
+    text-align: center;
+    padding: 5px 10px;
+    height: 150px;
+    width: 150px;
+    background: url("images/cfeMug.png") no-repeat 0 0 transparent;
+    background-size: 150px 150px;
+}
+
+/* Will be replaced in "onclick" in main.js file */
+#clickBtn:hover {
+    background: url("images/cfeMugClkd.png") no-repeat 0 0 transparent;
+    background-size: 150px 150px;
+}
+
+#settingsMenu {
+    /* border: black 1px solid; */
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    align-items: center;
+}
+
+#settingsMenu input {
+    text-align: center;
+}
+
+.settingsBtn {
+    flex-grow: 1;
+    height: 100%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.settingsBtn {
+    background-image: linear-gradient(lightgrey, grey, darkgrey);
+}
+.settingsBtn:hover {
+    background-image: linear-gradient(darkgrey, grey, lightgrey);
+}
+
+#dscrDisplay {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#dscrTitle {
+    font-size: 6vh;
+}
+#dscrStats {
+    font-size: 3vh;
+}
+#dscrLore {
+    font-size: 4vh;
+}

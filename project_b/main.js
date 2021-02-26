@@ -1,8 +1,6 @@
 const viewport = document.getElementById('viewport');
 const clickBtn = document.getElementById('clickBtn');
 const moneyBal = document.getElementById('moneyBal');
-const buyMenu = document.getElementById('buyMenu');
-const ctrlBar = document.getElementById('ctrlBar');
 const wrapper = document.getElementById('wrapper');
 
 // Legacy Varibles
@@ -70,14 +68,6 @@ function basicClk() {
     bank += clkWorth;
     // bank += 5000000000; Debug-mode
     moneyBal.innerHTML = '$'+ bank;
-    
-    // for(i = 100; i > 0; i--){
-    //     console.log(i);
-    //     let e = i;
-    //     setTimeout(function() {
-    //         console.log(e);
-    //     }, 10 * (100-i));
-    // };
 }
 
 // Saves Game
