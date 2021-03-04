@@ -5,6 +5,34 @@ const dscrTitle = document.getElementById('dscrTitle')
 const dscrStats = document.getElementById('dscrStats')
 const dscrLore = document.getElementById('dscrLore')
 
+//Title Library
+stndTitle = "Coffee Stand";
+brwyTitle = "Coffee Brewery";
+siloTitle = "Coffee Storage Silo";
+fctyTitle = "Coffee Factory";
+portTitle = "Coffee Shipping Port";
+spstTitle = "Coffee Orbital Station";
+unvsTitle = "Pocket Coffee Universe";
+
+//Stats Library
+stndStats = "Cost: $"+cfeStndCost+"<br>INCOME: +$"+stndPSec+"p/s each<br>CLICK BONUS: +"+stndPClk+"p/c each";
+brwyStats = "Cost: $"+cfeBrwyCost+"<br>INCOME: +$"+brwyPSec+"p/s each<br>CLICK BONUS: +$"+brwyPClk+"p/c each";
+siloStats = "Cost: $"+cfeSiloCost+"<br>INCOME: +$"+siloPSec+"p/s each<br>CLICK BONUS: +$"+siloPClk+"p/c each";
+fctyStats = "Cost: $"+cfeFctyCost+"<br>INCOME: +$"+fctyPSec+"p/s each<br>CLICK BONUS: +$"+fctyPClk+"p/c each";
+portStats = "Cost: $"+cfePortCost+"<br>INCOME: +$"+portPSec+"p/s each<br>CLICK BONUS: +$"+portPClk+"p/c each";
+spstStats = "Cost: $"+cfeSpstCost+"<br>INCOME: +$"+spstPSec+"p/s each<br>CLICK BONUS: +$"+spstPClk+"p/c each";
+unvsStats = "Cost: $"+cfeUnvsCost+"<br>INCOME: +$"+unvsPSec+"p/s each<br>CLICK BONUS: +$"+unvsPClk+"p/c each";
+
+
+// Lore Library
+stndLore = "Selling coffee the old fashion way, with a stand on the side of the road.";
+brwyLore = "A brewery that produces good old fashion coffee for the masses.";
+siloLore = "With the increasing demand for your coffee you'll need to start storing bulk coffee in advance.";
+fctyLore = "Now you're producing coffee on a truly capitalist scale. By untilizing underpaid workers and ignoring all safety guidlines, you can produce more coffee than ever!";
+portLore = "Your coffee now have demand over-seas, you'll need a shipping port to get deliver enough coffee.";
+spstLore = "News of your legendarily medicore, yet affordable, coffee has reached the stars. Otherworldly visitors from around cosmos have started to arrive to get some for themselves.";
+unvsLore = "Demand for your coffee is so high you've had to start creating entire pocket universes to house production.";
+
 // Start the game
 var gameState = JSON.parse(localStorage.getItem('gameState'));
 if (gameState === null){
@@ -218,10 +246,12 @@ function buyCfeBrwy(e) {
 // Coffee Brewery Tooltip
 cfeBrwy.addEventListener('mouseover', brwyUI);
 function brwyUI(){
+    if(cfeStndAmt >= 1){
     brwyStats = "Cost: $"+cfeBrwyCost+"<br>INCOME: +$"+brwyPSec+"p/s each<br>CLICK BONUS: +$"+brwyPClk+"p/c each";
     dscrTitle.innerHTML = brwyTitle;
     dscrStats.innerHTML = brwyStats;
     dscrLore.innerHTML = brwyLore;
+    }
 }
 
 // Coffee Silo Elements
@@ -248,11 +278,13 @@ function buyCfeSilo(e) {
             wrapper.style.backgroundSize = '50%';
             moneyAmt -= cfeSiloBase;
             cfeSiloAmt += 1;
+            cfeSiloCost = Math.ceil(cfeSiloBase * Math.pow(1.15, cfeSiloAmt));
             updateUI();
             siloUI();
         } else if(cfeSiloAmt >= 1 && moneyAmt >= Math.ceil(cfeSiloBase * Math.pow(1.15, cfeSiloAmt))){
             moneyAmt -= Math.ceil(cfeSiloBase * Math.pow(1.15, cfeSiloAmt));
             cfeSiloAmt += 1;
+            cfeSiloCost = Math.ceil(cfeSiloBase * Math.pow(1.15, cfeSiloAmt));
             updateUI();
             siloUI();
         } else {
@@ -266,16 +298,18 @@ function buyCfeSilo(e) {
 // Coffee Silo Tooltip
 cfeSilo.addEventListener('mouseover', siloUI);
 function siloUI(){
+    if(cfeBrwyAmt >= 1){
     siloStats = "Cost: $"+cfeSiloCost+"<br>INCOME: +$"+siloPSec+"p/s each<br>CLICK BONUS: +$"+siloPClk+"p/c each";
     dscrTitle.innerHTML = siloTitle;
     dscrStats.innerHTML = siloStats;
     dscrLore.innerHTML = siloLore;
+    }
 }
 
 // Coffee Factory Elements
-var cfeCfeBase = 50000;
+var cfeFctyBase = 50000;
 var cfeFctyAmt = gameState[4];
-var cfeFctyCost = Math.ceil(cfeBrwyBase * Math.pow(1.15, cfeBrwyAmt));
+var cfeFctyCost = Math.ceil(cfeFctyBase * Math.pow(1.15, cfeFctyAmt));
 var fctyPClk = 30;
 var fctyPSec = 500;
 const cfeFcty = document.getElementById('cfeFcty');
@@ -286,7 +320,7 @@ function buyCfeFcty(e) {
     if(cfeSiloAmt <= 0){
         e.preventDefault();
     } else {
-        if(cfeFctyAmt <= 0 && moneyAmt >= cfeCfeBase){
+        if(cfeFctyAmt <= 0 && moneyAmt >= cfeFctyBase){
             for(i = 100; i > 0; i--){
                 let e = i;
                 setTimeout(function() {
@@ -294,11 +328,12 @@ function buyCfeFcty(e) {
                 }, 10 * (100-i));
             };
             wrapper.style.backgroundSize = '25%';
-            moneyAmt -= cfeCfeBase;
+            moneyAmt -= cfeFctyBase;
             cfeFctyAmt += 1;
+            cfeFctyCost = Math.ceil(cfeFctyBase * Math.pow(1.15, cfeFctyAmt));
             updateUI();
             fctyUI();
-        } else if(cfeFctyAmt >= 1 && moneyAmt >= Math.ceil(cfeCfeBase * Math.pow(1.15, cfeFctyAmt))){
+        } else if(cfeFctyAmt >= 1 && moneyAmt >= Math.ceil(cfeFctyBase * Math.pow(1.15, cfeFctyAmt))){
             moneyAmt -= Math.ceil(cfeCfeBase * Math.pow(1.15, cfeFctyAmt));
             cfeFctyAmt += 1;
             updateUI();
@@ -314,10 +349,12 @@ function buyCfeFcty(e) {
 // Coffee Factory Tooltip
 cfeFcty.addEventListener('mouseover', fctyUI);
 function fctyUI(){
+    if(cfeSiloAmt >= 1){
     fctyStats = "Cost: $"+cfeFctyCost+"<br>INCOME: +$"+fctyPSec+"p/s each<br>CLICK BONUS: +$"+fctyPClk+"p/c each";
     dscrTitle.innerHTML = fctyTitle;
     dscrStats.innerHTML = fctyStats;
     dscrLore.innerHTML = fctyLore;
+    }
 }
 
 // Coffee Port Elements
@@ -344,11 +381,13 @@ function buyCfePort(e) {
             wrapper.style.backgroundSize = '10%';
             moneyAmt -= cfePortBase;
             cfePortAmt += 1;
+            cfePortCost = Math.ceil(cfePortBase * Math.pow(1.15, cfePortAmt));
             updateUI();
             portUI();
         } else if(cfePortAmt >= 0 && moneyAmt >= Math.ceil(cfePortBase * Math.pow(1.15, cfePortAmt))){
             moneyAmt -= Math.ceil(cfePortBase * Math.pow(1.15, cfePortAmt));
             cfePortAmt += 1;
+            cfePortCost = Math.ceil(cfePortBase * Math.pow(1.15, cfePortAmt));
             updateUI();
             portUI();
         } else {
@@ -362,10 +401,12 @@ function buyCfePort(e) {
 // Coffee Port Tooltip
 cfePort.addEventListener('mouseover', portUI);
 function portUI(){
+    if(cfeFctyAmt >= 1){
     portStats = "Cost: $"+cfePortCost+"<br>INCOME: +$"+portPSec+"p/s each<br>CLICK BONUS: +$"+portPClk+"p/c each";
     dscrTitle.innerHTML = portTitle;
     dscrStats.innerHTML = portStats;
     dscrLore.innerHTML = portLore;
+    }
 }
 
 // Coffee Space Station Elements
@@ -392,11 +433,13 @@ function buyCfeSpst(e) {
             wrapper.style.backgroundSize = '5%';
             moneyAmt -= cfeSpstBase;
             cfeSpstAmt += 1;
+            cfeSpstCost = Math.ceil(cfeSpstBase * Math.pow(1.15, cfeSpstAmt));
             updateUI();
             spstUI();
         } else if(cfeSpstAmt >= 0 && moneyAmt >= Math.ceil(cfeSpstBase * Math.pow(1.15, cfeSpstAmt))){
             moneyAmt -= Math.ceil(cfeSpstBase * Math.pow(1.15, cfeSpstAmt));
             cfeSpstAmt += 1;
+            cfeSpstCost = Math.ceil(cfeSpstBase * Math.pow(1.15, cfeSpstAmt));
             updateUI();
             spstUI();
         } else {
@@ -407,13 +450,15 @@ function buyCfeSpst(e) {
         }
     }
 }
-// Coffee Spst Tooltip
+// Coffee Orbital(Space) Station Tooltip
 cfeSpst.addEventListener('mouseover', spstUI);
 function spstUI(){
+    if(cfePortAmt >= 1){
     spstStats = "Cost: $"+cfeSpstCost+"<br>INCOME: +$"+spstPSec+"p/s each<br>CLICK BONUS: +$"+spstPClk+"p/c each";
     dscrTitle.innerHTML = spstTitle;
     dscrStats.innerHTML = spstStats;
     dscrLore.innerHTML = spstLore;
+    }
 }
 
 // Coffee Universe Elements
@@ -441,11 +486,13 @@ function buyCfeUnvs(e) {
             };
             moneyAmt -= cfeUnvsBase;
             cfeUnvsAmt += 1;
+            cfeUnvsCost = Math.ceil(cfeUnvsBase * Math.pow(1.15, cfeUnvsAmt));
             updateUI();
             unvsUI();
         } else if(cfeUnvsAmt >= 0 && moneyAmt >= Math.ceil(cfeUnvsBase * Math.pow(1.15, cfeUnvsAmt))){
             moneyAmt -= Math.ceil(cfeUnvsBase * Math.pow(1.15, cfeUnvsAmt));
             cfeUnvsAmt += 1;
+            cfeUnvsCost = Math.ceil(cfeUnvsBase * Math.pow(1.15, cfeUnvsAmt));
             updateUI();
             unvsUI();
         } else {
@@ -459,10 +506,12 @@ function buyCfeUnvs(e) {
 // Coffee Unviverse Tooltip
 cfeUnvs.addEventListener('mouseover', unvsUI);
 function unvsUI(){
+    if(cfeSpstAmt >= 1){
     unvsStats = "Cost: $"+cfeUnvsCost+"<br>INCOME: +$"+unvsPSec+"p/s each<br>CLICK BONUS: +$"+unvsPClk+"p/c each";
     dscrTitle.innerHTML = unvsTitle;
     dscrStats.innerHTML = unvsStats;
     dscrLore.innerHTML = unvsLore;
+    }
 }
 
 
@@ -490,31 +539,3 @@ window.onLoad = renderUI();
 // "Math.ceil(cfeStndBase * Math.pow(1.15, cfeStndAmt))" + "stndIncMod" + "stndClkMod"
 //
 
-//Title Library
-stndTitle = "Coffee Stand";
-brwyTitle = "Coffee Brewery";
-siloTitle = "Coffee Storage Silo";
-fctyTitle = "Coffee Factory";
-portTitle = "Coffee Shipping Port";
-spstTitle = "Coffee Orbital Station";
-unvsTitle = "Pocket Coffee Universe";
-
-//Stats Library
-stndStats = "Cost: $"+cfeStndCost+"<br>INCOME: +$"+stndPSec+"p/s each<br>CLICK BONUS: +"+stndPClk+"p/c each";
-brwyStats = "Cost: $"+cfeBrwyCost+"<br>INCOME: +$"+brwyPSec+"p/s each<br>CLICK BONUS: +$"+brwyPClk+"p/c each";
-siloStats = "Cost: $"+cfeSiloCost+"<br>INCOME: +$"+siloPSec+"p/s each<br>CLICK BONUS: +$"+siloPClk+"p/c each";
-fctyStats = "Cost: $"+cfeFctyCost+"<br>INCOME: +$"+fctyPSec+"p/s each<br>CLICK BONUS: +$"+fctyPClk+"p/c each";
-portStats = "Cost: $"+cfePortCost+"<br>INCOME: +$"+portPSec+"p/s each<br>CLICK BONUS: +$"+portPClk+"p/c each";
-spstStats = "Cost: $"+cfeSpstCost+"<br>INCOME: +$"+spstPSec+"p/s each<br>CLICK BONUS: +$"+spstPClk+"p/c each";
-unvsStats = "Cost: $"+cfeUnvsCost+"<br>INCOME: +$"+unvsPSec+"p/s each<br>CLICK BONUS: +$"+unvsPClk+"p/c each";
-
-
-// Lore Library
-// tstLore = Math.ceil(cfeStndBase * Math.pow(1.15, cfeStndAmt))+" "stndIncMod+" "stndClkMod;
-stndLore = "Selling coffee the old fashion way, with a stand on the side of the road.";
-brwyLore = "A brewery that produces good old fashion coffee for the masses.";
-siloLore = "With the increasing demand for your coffee you'll need to start storing bulk coffee in advance.";
-fctyLore = "Now you're producing coffee on a truly capitalist scale. By untilizing underpaid workers and ignoring all safety guidlines, you can produce more coffee than ever!";
-portLore = "Your coffee now have demand over-seas, you'll need a shipping port to get deliver enough coffee.";
-spstLore = "News of your legendarily medicore, yet affordable, coffee has reached the stars. Otherworldly visitors from around cosmos have started to arrive to get some for themselves.";
-unvsLore = "Demand for your coffee is so high you've had to start creating entire pocket universes to house production.";
