@@ -1,6 +1,9 @@
 // Grabbing DOM Elements
 const clickBtn = document.getElementById('clickBtn')
 const moneyDisplay = document.getElementById('moneyDisplay')
+const dscrTitle = document.getElementById('dscrTitle')
+const dscrStats = document.getElementById('dscrStats')
+const dscrLore = document.getElementById('dscrLore')
 
 // Start the game
 var gameState = JSON.parse(localStorage.getItem('gameState'));
@@ -123,7 +126,7 @@ function restartGame() {
 
 // Adds money from shops once per second
 setInterval(function(){
-    moneyAmt += ((cfeStndAmt * 5) + (cfeBrwyAmt * 25) + (cfeSiloAmt * 100) + (cfeFctyAmt * 500) + (cfePortAmt * 1000) + (cfeSpstAmt * 10000) + (cfeUnvsAmt * 100000))
+    moneyAmt += ((cfeStndAmt * 5) + (cfeBrwyAmt * 25) + (cfeSiloAmt * 100) + (cfeFctyAmt * 500) + (cfePortAmt * 1000) + (cfeSpstAmt * 10000) + (cfeUnvsAmt * 100000));
     moneyDisplay.innerHTML = '$'+ moneyAmt;
 }, 1000);
 
@@ -131,6 +134,8 @@ setInterval(function(){
 var cfeStndBase = 50;
 var cfeStndAmt = gameState[1];
 var cfeStndCost = Math.ceil(cfeStndBase * Math.pow(1.15, cfeStndAmt));
+var stndPClk = 1;
+var stndPSec = 5;
 const cfeStnd = document.getElementById('cfeStnd');
 const cfeStndCntr = document.getElementById('cfeStndCntr');
 // Buys a Coffee Stand
@@ -152,6 +157,7 @@ function buyCfeStnd() {
         cfeStndCost = Math.ceil(cfeStndBase * Math.pow(1.15, cfeStndAmt));
         cfeStndAmt += 1;
         updateUI();
+        stndUI();
     } else {
         cfeStnd.style.color = "red";
         setTimeout(function() {
@@ -159,11 +165,21 @@ function buyCfeStnd() {
         }, 1000);    
     }
 }
+// Coffee Stand Tooltip
+cfeStnd.addEventListener('mouseover', stndUI);
+function stndUI(){
+    stndStats = "Cost: $"+cfeStndCost+"<br>INCOME: +$"+stndPSec+"p/s each<br>CLICK BONUS: +"+stndPClk+"p/c each";
+    dscrTitle.innerHTML = stndTitle;
+    dscrStats.innerHTML = stndStats;
+    dscrLore.innerHTML = stndLore;
+}
 
 // Coffee Brewery Elements
 var cfeBrwyBase = 500;
 var cfeBrwyAmt = gameState[2];
 var cfeBrwyCost = Math.ceil(cfeBrwyBase * Math.pow(1.15, cfeBrwyAmt));
+var brwyPClk = 5;
+var brwyPSec = 50;
 const cfeBrwy = document.getElementById('cfeBrwy');
 const cfeBrwyCntr = document.getElementById('cfeBrwyCntr');
 cfeBrwy.addEventListener('click', buyCfeBrwy);
@@ -184,11 +200,13 @@ function buyCfeBrwy(e) {
             cfeBrwyCost = Math.ceil(cfeBrwyBase * Math.pow(1.15, cfeBrwyAmt));
             cfeBrwyAmt += 1;
             updateUI();
+            brwyUI();
         } else if(cfeBrwyAmt >= 1 && moneyAmt >= cfeBrwyCost){
             cfeBrwyAmt += 1;
             cfeBrwyCost = Math.ceil(cfeBrwyBase * Math.pow(1.15, cfeBrwyAmt));
             moneyAmt -= cfeBrwyCost;
             updateUI();
+            brwyUI();
         } else {
             cfeBrwy.style.color = "red";
             setTimeout(function() {
@@ -197,10 +215,21 @@ function buyCfeBrwy(e) {
         }
     }
 }
+// Coffee Brewery Tooltip
+cfeBrwy.addEventListener('mouseover', brwyUI);
+function brwyUI(){
+    brwyStats = "Cost: $"+cfeBrwyCost+"<br>INCOME: +$"+brwyPSec+"p/s each<br>CLICK BONUS: +$"+brwyPClk+"p/c each";
+    dscrTitle.innerHTML = brwyTitle;
+    dscrStats.innerHTML = brwyStats;
+    dscrLore.innerHTML = brwyLore;
+}
 
 // Coffee Silo Elements
 var cfeSiloBase = 5000;
 var cfeSiloAmt = gameState[3];
+var cfeSiloCost = Math.ceil(cfeSiloBase * Math.pow(1.15, cfeSiloAmt));
+var siloPClk = 15;
+var siloPSec = 100;
 const cfeSilo = document.getElementById('cfeSilo');
 const cfeSiloCntr = document.getElementById('cfeSiloCntr');
 cfeSilo.addEventListener('click', buyCfeSilo);
@@ -220,10 +249,12 @@ function buyCfeSilo(e) {
             moneyAmt -= cfeSiloBase;
             cfeSiloAmt += 1;
             updateUI();
+            siloUI();
         } else if(cfeSiloAmt >= 1 && moneyAmt >= Math.ceil(cfeSiloBase * Math.pow(1.15, cfeSiloAmt))){
             moneyAmt -= Math.ceil(cfeSiloBase * Math.pow(1.15, cfeSiloAmt));
             cfeSiloAmt += 1;
             updateUI();
+            siloUI();
         } else {
             cfeSilo.style.color = "red";
             setTimeout(function() {
@@ -232,10 +263,21 @@ function buyCfeSilo(e) {
         }
     }
 }
+// Coffee Silo Tooltip
+cfeSilo.addEventListener('mouseover', siloUI);
+function siloUI(){
+    siloStats = "Cost: $"+cfeSiloCost+"<br>INCOME: +$"+siloPSec+"p/s each<br>CLICK BONUS: +$"+siloPClk+"p/c each";
+    dscrTitle.innerHTML = siloTitle;
+    dscrStats.innerHTML = siloStats;
+    dscrLore.innerHTML = siloLore;
+}
 
 // Coffee Factory Elements
 var cfeCfeBase = 50000;
 var cfeFctyAmt = gameState[4];
+var cfeFctyCost = Math.ceil(cfeBrwyBase * Math.pow(1.15, cfeBrwyAmt));
+var fctyPClk = 30;
+var fctyPSec = 500;
 const cfeFcty = document.getElementById('cfeFcty');
 const cfeFctyCntr = document.getElementById('cfeFctyCntr');
 cfeFcty.addEventListener('click', buyCfeFcty);
@@ -255,10 +297,12 @@ function buyCfeFcty(e) {
             moneyAmt -= cfeCfeBase;
             cfeFctyAmt += 1;
             updateUI();
+            fctyUI();
         } else if(cfeFctyAmt >= 1 && moneyAmt >= Math.ceil(cfeCfeBase * Math.pow(1.15, cfeFctyAmt))){
             moneyAmt -= Math.ceil(cfeCfeBase * Math.pow(1.15, cfeFctyAmt));
             cfeFctyAmt += 1;
             updateUI();
+            fctyUI();
         } else {
             cfeFcty.style.color = "red";
             setTimeout(function() {
@@ -267,10 +311,21 @@ function buyCfeFcty(e) {
         }
     }
 }
+// Coffee Factory Tooltip
+cfeFcty.addEventListener('mouseover', fctyUI);
+function fctyUI(){
+    fctyStats = "Cost: $"+cfeFctyCost+"<br>INCOME: +$"+fctyPSec+"p/s each<br>CLICK BONUS: +$"+fctyPClk+"p/c each";
+    dscrTitle.innerHTML = fctyTitle;
+    dscrStats.innerHTML = fctyStats;
+    dscrLore.innerHTML = fctyLore;
+}
 
 // Coffee Port Elements
 var cfePortBase = 500000;
 var cfePortAmt = gameState[5];
+var cfePortCost = Math.ceil(cfePortBase * Math.pow(1.15, cfePortAmt));
+var portPClk = 100;
+var portPSec = 1000;
 const cfePort = document.getElementById('cfePort');
 const cfePortCntr = document.getElementById('cfePortCntr');
 cfePort.addEventListener('click', buyCfePort);
@@ -290,10 +345,12 @@ function buyCfePort(e) {
             moneyAmt -= cfePortBase;
             cfePortAmt += 1;
             updateUI();
+            portUI();
         } else if(cfePortAmt >= 0 && moneyAmt >= Math.ceil(cfePortBase * Math.pow(1.15, cfePortAmt))){
             moneyAmt -= Math.ceil(cfePortBase * Math.pow(1.15, cfePortAmt));
             cfePortAmt += 1;
             updateUI();
+            portUI();
         } else {
             cfePort.style.color = "red";
             setTimeout(function() {
@@ -302,10 +359,21 @@ function buyCfePort(e) {
         }
     }
 }
+// Coffee Port Tooltip
+cfePort.addEventListener('mouseover', portUI);
+function portUI(){
+    portStats = "Cost: $"+cfePortCost+"<br>INCOME: +$"+portPSec+"p/s each<br>CLICK BONUS: +$"+portPClk+"p/c each";
+    dscrTitle.innerHTML = portTitle;
+    dscrStats.innerHTML = portStats;
+    dscrLore.innerHTML = portLore;
+}
 
 // Coffee Space Station Elements
 var cfeSpstBase = 5000000;
 var cfeSpstAmt = gameState[6];
+var cfeSpstCost = Math.ceil(cfeSpstBase * Math.pow(1.15, cfeSpstAmt));
+var spstPClk = 500;
+var spstPSec = 10000;
 const cfeSpst = document.getElementById('cfeSpst');
 const cfeSpstCntr = document.getElementById('cfeSpstCntr');
 cfeSpst.addEventListener('click', buyCfeSpst);
@@ -325,10 +393,12 @@ function buyCfeSpst(e) {
             moneyAmt -= cfeSpstBase;
             cfeSpstAmt += 1;
             updateUI();
+            spstUI();
         } else if(cfeSpstAmt >= 0 && moneyAmt >= Math.ceil(cfeSpstBase * Math.pow(1.15, cfeSpstAmt))){
             moneyAmt -= Math.ceil(cfeSpstBase * Math.pow(1.15, cfeSpstAmt));
             cfeSpstAmt += 1;
             updateUI();
+            spstUI();
         } else {
             cfeSpst.style.color = "red";
             setTimeout(function() {
@@ -337,10 +407,21 @@ function buyCfeSpst(e) {
         }
     }
 }
+// Coffee Spst Tooltip
+cfeSpst.addEventListener('mouseover', spstUI);
+function spstUI(){
+    spstStats = "Cost: $"+cfeSpstCost+"<br>INCOME: +$"+spstPSec+"p/s each<br>CLICK BONUS: +$"+spstPClk+"p/c each";
+    dscrTitle.innerHTML = spstTitle;
+    dscrStats.innerHTML = spstStats;
+    dscrLore.innerHTML = spstLore;
+}
 
 // Coffee Universe Elements
 var cfeUnvsBase = 50000000;
 var cfeUnvsAmt = gameState[7];
+var cfeUnvsCost = Math.ceil(cfeUnvsBase * Math.pow(1.15, cfeUnvsAmt));
+var unvsPClk = 1000;
+var unvsPSec = 100000;
 const cfeUnvs = document.getElementById('cfeUnvs');
 const cfeUnvsCntr = document.getElementById('cfeUnvsCntr');
 cfeUnvs.addEventListener('click', buyCfeUnvs);
@@ -361,10 +442,12 @@ function buyCfeUnvs(e) {
             moneyAmt -= cfeUnvsBase;
             cfeUnvsAmt += 1;
             updateUI();
+            unvsUI();
         } else if(cfeUnvsAmt >= 0 && moneyAmt >= Math.ceil(cfeUnvsBase * Math.pow(1.15, cfeUnvsAmt))){
             moneyAmt -= Math.ceil(cfeUnvsBase * Math.pow(1.15, cfeUnvsAmt));
             cfeUnvsAmt += 1;
             updateUI();
+            unvsUI();
         } else {
             cfeUnvs.style.color = "red";
             setTimeout(function() {
@@ -373,7 +456,14 @@ function buyCfeUnvs(e) {
         }
     }
 }
-
+// Coffee Unviverse Tooltip
+cfeUnvs.addEventListener('mouseover', unvsUI);
+function unvsUI(){
+    unvsStats = "Cost: $"+cfeUnvsCost+"<br>INCOME: +$"+unvsPSec+"p/s each<br>CLICK BONUS: +$"+unvsPClk+"p/c each";
+    dscrTitle.innerHTML = unvsTitle;
+    dscrStats.innerHTML = unvsStats;
+    dscrLore.innerHTML = unvsLore;
+}
 
 
 
@@ -395,12 +485,36 @@ function buyCfeUnvs(e) {
 
 
 window.onLoad = renderUI();
+// Dscrs
+// $cost + $ps + $pc
+// "Math.ceil(cfeStndBase * Math.pow(1.15, cfeStndAmt))" + "stndIncMod" + "stndClkMod"
+//
+
+//Title Library
+stndTitle = "Coffee Stand";
+brwyTitle = "Coffee Brewery";
+siloTitle = "Coffee Storage Silo";
+fctyTitle = "Coffee Factory";
+portTitle = "Coffee Shipping Port";
+spstTitle = "Coffee Orbital Station";
+unvsTitle = "Pocket Coffee Universe";
+
+//Stats Library
+stndStats = "Cost: $"+cfeStndCost+"<br>INCOME: +$"+stndPSec+"p/s each<br>CLICK BONUS: +"+stndPClk+"p/c each";
+brwyStats = "Cost: $"+cfeBrwyCost+"<br>INCOME: +$"+brwyPSec+"p/s each<br>CLICK BONUS: +$"+brwyPClk+"p/c each";
+siloStats = "Cost: $"+cfeSiloCost+"<br>INCOME: +$"+siloPSec+"p/s each<br>CLICK BONUS: +$"+siloPClk+"p/c each";
+fctyStats = "Cost: $"+cfeFctyCost+"<br>INCOME: +$"+fctyPSec+"p/s each<br>CLICK BONUS: +$"+fctyPClk+"p/c each";
+portStats = "Cost: $"+cfePortCost+"<br>INCOME: +$"+portPSec+"p/s each<br>CLICK BONUS: +$"+portPClk+"p/c each";
+spstStats = "Cost: $"+cfeSpstCost+"<br>INCOME: +$"+spstPSec+"p/s each<br>CLICK BONUS: +$"+spstPClk+"p/c each";
+unvsStats = "Cost: $"+cfeUnvsCost+"<br>INCOME: +$"+unvsPSec+"p/s each<br>CLICK BONUS: +$"+unvsPClk+"p/c each";
+
 
 // Lore Library
-stndLore = "This is the lore for the Coffee Stand";
-brwyLore = "This is the lore for the Coffee Brewery";
-siloLore = "This is the lore for the Coffee Silo";
-fctyLore = "This is the lore for the Coffee Factory";
-portLore = "This is the lore for the Coffee Port";
-spstLore = "This is the lore for the Coffee Space Station";
-unvsLore = "This is the lore for the Coffee Universe";
+// tstLore = Math.ceil(cfeStndBase * Math.pow(1.15, cfeStndAmt))+" "stndIncMod+" "stndClkMod;
+stndLore = "Selling coffee the old fashion way, with a stand on the side of the road.";
+brwyLore = "A brewery that produces good old fashion coffee for the masses.";
+siloLore = "With the increasing demand for your coffee you'll need to start storing bulk coffee in advance.";
+fctyLore = "Now you're producing coffee on a truly capitalist scale. By untilizing underpaid workers and ignoring all safety guidlines, you can produce more coffee than ever!";
+portLore = "Your coffee now have demand over-seas, you'll need a shipping port to get deliver enough coffee.";
+spstLore = "News of your legendarily medicore, yet affordable, coffee has reached the stars. Otherworldly visitors from around cosmos have started to arrive to get some for themselves.";
+unvsLore = "Demand for your coffee is so high you've had to start creating entire pocket universes to house production.";
