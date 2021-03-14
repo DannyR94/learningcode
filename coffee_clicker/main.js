@@ -29,7 +29,7 @@ stndLore = "Selling coffee the old fashion way, with a stand on the side of the 
 brwyLore = "A brewery that produces good old fashion coffee for the masses.";
 siloLore = "With the increasing demand for your coffee you'll need to start storing bulk coffee in advance.";
 fctyLore = "Now you're producing coffee on a truly capitalist scale. By untilizing underpaid workers and ignoring all safety guidlines, you can produce more coffee than ever!";
-portLore = "Your coffee now have demand over-seas, you'll need a shipping port to get deliver enough coffee.";
+portLore = "Your coffee now has demand over-seas, you'll need a shipping port to export enough coffee.";
 spstLore = "News of your legendarily medicore, yet affordable, coffee has reached the stars. Otherworldly visitors from around cosmos have started to arrive to get some for themselves.";
 unvsLore = "Demand for your coffee is so high you've had to start creating entire pocket universes to house production.";
 
@@ -165,9 +165,10 @@ var cfeStndCost = Math.ceil(cfeStndBase * Math.pow(1.15, cfeStndAmt));
 var stndPClk = 1;
 var stndPSec = 5;
 const cfeStnd = document.getElementById('cfeStnd');
+const stndBtn1 = document.getElementById('buyStndBtn1');
 const cfeStndCntr = document.getElementById('cfeStndCntr');
 // Buys a Coffee Stand
-cfeStnd.addEventListener('click', buyCfeStnd);
+stndBtn1.addEventListener('click', buyCfeStnd);
 function buyCfeStnd() {
     if(cfeStndAmt <= 0 && moneyAmt >= cfeStndBase){
         for(i = 100; i > 0; i--){
@@ -188,8 +189,10 @@ function buyCfeStnd() {
         stndUI();
     } else {
         cfeStnd.style.color = "red";
+        stndBtn1.style.color = "red";
         setTimeout(function() {
             cfeStnd.style.color = "black";
+            stndBtn1.style.color = "black";
         }, 1000);    
     }
 }
@@ -209,8 +212,9 @@ var cfeBrwyCost = Math.ceil(cfeBrwyBase * Math.pow(1.15, cfeBrwyAmt));
 var brwyPClk = 5;
 var brwyPSec = 50;
 const cfeBrwy = document.getElementById('cfeBrwy');
+const brwyBtn1 = document.getElementById('buyBrwyBtn1')
 const cfeBrwyCntr = document.getElementById('cfeBrwyCntr');
-cfeBrwy.addEventListener('click', buyCfeBrwy);
+brwyBtn1.addEventListener('click', buyCfeBrwy);
 // Buys a Coffee Brewery
 function buyCfeBrwy(e) {
     if(cfeStndAmt <= 0){
@@ -237,8 +241,10 @@ function buyCfeBrwy(e) {
             brwyUI();
         } else {
             cfeBrwy.style.color = "red";
+            brwyBtn1.style.color = "red";
             setTimeout(function() {
                 cfeBrwy.style.color = "black";
+                brwyBtn1.style.color = "black";
             }, 1000); 
         }
     }
@@ -261,8 +267,9 @@ var cfeSiloCost = Math.ceil(cfeSiloBase * Math.pow(1.15, cfeSiloAmt));
 var siloPClk = 15;
 var siloPSec = 100;
 const cfeSilo = document.getElementById('cfeSilo');
+const siloBtn1 = document.getElementById('buySiloBtn1');
 const cfeSiloCntr = document.getElementById('cfeSiloCntr');
-cfeSilo.addEventListener('click', buyCfeSilo);
+siloBtn1.addEventListener('click', buyCfeSilo);
 // Buys a Coffee Silo
 function buyCfeSilo(e) {
     if(cfeBrwyAmt <= 0){
@@ -289,8 +296,10 @@ function buyCfeSilo(e) {
             siloUI();
         } else {
             cfeSilo.style.color = "red";
+            siloBtn1.style.color = "red";
             setTimeout(function() {
                 cfeSilo.style.color = "black";
+                siloBtn1.style.color = "black";
             }, 1000);
         }
     }
@@ -313,8 +322,9 @@ var cfeFctyCost = Math.ceil(cfeFctyBase * Math.pow(1.15, cfeFctyAmt));
 var fctyPClk = 30;
 var fctyPSec = 500;
 const cfeFcty = document.getElementById('cfeFcty');
+const fctyBtn1 = document.getElementById('buyFctyBtn1');
 const cfeFctyCntr = document.getElementById('cfeFctyCntr');
-cfeFcty.addEventListener('click', buyCfeFcty);
+fctyBtn1.addEventListener('click', buyCfeFcty);
 // Buys a Coffee Factory
 function buyCfeFcty(e) {
     if(cfeSiloAmt <= 0){
@@ -340,8 +350,10 @@ function buyCfeFcty(e) {
             fctyUI();
         } else {
             cfeFcty.style.color = "red";
+            fctyBtn1.style.color = "red";
             setTimeout(function() {
                 cfeFcty.style.color = "black";
+                fctyBtn1.style.color = "black";
             }, 1000);
         }
     }
@@ -364,8 +376,9 @@ var cfePortCost = Math.ceil(cfePortBase * Math.pow(1.15, cfePortAmt));
 var portPClk = 100;
 var portPSec = 1000;
 const cfePort = document.getElementById('cfePort');
+const portBtn1 = document.getElementById('buyPortBtn1');
 const cfePortCntr = document.getElementById('cfePortCntr');
-cfePort.addEventListener('click', buyCfePort);
+portBtn1.addEventListener('click', buyCfePort);
 // Buys a Coffee Port
 function buyCfePort(e) {
     if(cfeFctyAmt <= 0){
@@ -392,8 +405,10 @@ function buyCfePort(e) {
             portUI();
         } else {
             cfePort.style.color = "red";
+            portBtn1.style.color = "red";
             setTimeout(function() {
                 cfePort.style.color = "black";
+                portBtn1.style.color = "black";
             }, 1000);
         }
     }
@@ -416,8 +431,9 @@ var cfeSpstCost = Math.ceil(cfeSpstBase * Math.pow(1.15, cfeSpstAmt));
 var spstPClk = 500;
 var spstPSec = 10000;
 const cfeSpst = document.getElementById('cfeSpst');
+const spstBtn1 = document.getElementById('buySpstBtn1')
 const cfeSpstCntr = document.getElementById('cfeSpstCntr');
-cfeSpst.addEventListener('click', buyCfeSpst);
+spstBtn1.addEventListener('click', buyCfeSpst);
 // Buys a Coffee Space Station
 function buyCfeSpst(e) {
     if(cfePortAmt <= 0){
@@ -444,8 +460,10 @@ function buyCfeSpst(e) {
             spstUI();
         } else {
             cfeSpst.style.color = "red";
+            spstBtn1.style.color = "red";
             setTimeout(function() {
                 cfeSpst.style.color = "black";
+                spstBtn1.style.color = "black";
             }, 1000);
         }
     }
@@ -468,8 +486,9 @@ var cfeUnvsCost = Math.ceil(cfeUnvsBase * Math.pow(1.15, cfeUnvsAmt));
 var unvsPClk = 1000;
 var unvsPSec = 100000;
 const cfeUnvs = document.getElementById('cfeUnvs');
+const unvsBtn1 = document.getElementById('buyUnvsBtn1')
 const cfeUnvsCntr = document.getElementById('cfeUnvsCntr');
-cfeUnvs.addEventListener('click', buyCfeUnvs);
+unvsBtn1.addEventListener('click', buyCfeUnvs);
 // Buys a Coffee Universe
 function buyCfeUnvs(e) {
     if(cfeSpstAmt <= 0){
@@ -497,8 +516,10 @@ function buyCfeUnvs(e) {
             unvsUI();
         } else {
             cfeUnvs.style.color = "red";
+            unvsBtn1.style.color = "red";
             setTimeout(function() {
                 cfeUnvs.style.color = "black";
+                unvsBtn1.style.color = "black";
             }, 1000);
         }
     }
@@ -514,28 +535,6 @@ function unvsUI(){
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Renders UI elements based on save data
+// Its at the end of the doc to ensure all varibles have been instantiated.
 window.onLoad = renderUI();
-// Dscrs
-// $cost + $ps + $pc
-// "Math.ceil(cfeStndBase * Math.pow(1.15, cfeStndAmt))" + "stndIncMod" + "stndClkMod"
-//
-

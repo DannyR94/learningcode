@@ -26,6 +26,7 @@ input {
 .displayBox {
     border-bottom: black 1px solid;
     height: 14.3vh;
+    font-size: 3vh;
 }
 
 #menuDisplay {
